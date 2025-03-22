@@ -1,0 +1,8 @@
+geotext
+transformers
+torch
+torchvision
+torchaudio
+accelerate
+presidio-analyzer[transformers]
+presidio_anonymizer
