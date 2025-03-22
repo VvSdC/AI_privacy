@@ -6,3 +6,4 @@ torchaudio
 accelerate
 presidio-analyzer[transformers]
 presidio_anonymizer
+phonenumbers
