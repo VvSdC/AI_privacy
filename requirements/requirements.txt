@@ -7,3 +7,5 @@ accelerate
 presidio-analyzer[transformers]
 presidio_anonymizer
 phonenumbers
+fastapi
+uvicorn
