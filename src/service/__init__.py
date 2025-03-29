@@ -19,7 +19,7 @@ registry.add_recognizer(starpii_recognizer)
 registry.add_recognizer(multilingual_recognizer)
 registry.add_recognizer(uin_recognizer)
 registry.add_recognizer(credit_card_recognizer)
-
+registry.add_recognizer(phone_number_recognizer)
 
 # Presidio configuration
 presidio_analyzer = AnalyzerEngine(registry=registry)
