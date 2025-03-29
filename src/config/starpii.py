@@ -1,0 +1,14 @@
+STARPII_CONFIG = {
+    "SUPPORTED_ENTITIES" : [
+        "USERNAME","KEY","PASSWORD","EMAIL","IP_ADDRESS","NAME"
+    ],
+    "MODEL_TO_PRESIDIO_MAPPING" : {
+        "USERNAME" : "USERNAME",
+        "KEY" : "SECRET_KEY",
+        "PASSWORD" : "PASSWORD",
+        "EMAIL" : "EMAIL_ADDRESS",
+        "IP_ADDRESS" : "IP_ADDRESS",
+        "NAME" : "NAME"
+    },
+    "MODEL_THRESHOLD_SCORE" : 0.15
+}

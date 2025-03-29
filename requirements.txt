@@ -1,0 +1,12 @@
+# Transformers
+transformers 
+torch 
+torchaudio
+torchvision
+accelerate
+# For presidio
+presidio_analyzer[transformers]
+spacy==3.8.0
+# For Fast API
+fastapi
+uvicorn

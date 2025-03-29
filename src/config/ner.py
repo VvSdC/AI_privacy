@@ -1,0 +1,9 @@
+MULTILINGUAL_CONFIG = {
+    "SUPPORTED_ENTITIES" : [
+        "LOC"
+    ],
+    "MODEL_TO_PRESIDIO_MAPPING" : {
+        "LOC" : "LOCATION_NAME"
+    },
+    "MODEL_THRESHOLD_SCORE" : 0.97
+}
