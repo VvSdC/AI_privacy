@@ -22,27 +22,70 @@ credit_card_recognizer = PatternRecognizer(patterns=credit_card_patterns, suppor
 
 # Phone number patterns
 phone_number_patterns = [
+    # 1️⃣ International phone number (Requires at least 9 digits)
     Pattern(
         name="INTL_PHONE_NUMBER",
-        regex=r"\+?[1-9]\d{0,2}[-. ]?\(?\d{1,4}\)?[-. ]?\d{1,4}[-. ]?\d{1,9}",
+        regex=r"\+?[1-9]\d{0,2}[-. ]?\(?\d{2,4}\)?[-. ]?\d{2,4}[-. ]?\d{4,9}",
         score=0.90,
     ),
+
+    # 2️⃣ US phone number (10-digit format with optional country code)
     Pattern(
         name="US_PHONE_NUMBER",
         regex=r"\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}",
         score=0.85,
     ),
+
+    # 3️⃣ India phone number (10-digit format, starting with 6, 7, 8, or 9)
     Pattern(
         name="IN_PHONE_NUMBER",
         regex=r"\b[6789]\d{9}\b",
         score=0.85,
     ),
+
+    # 4️⃣ UK phone number (Starting with +44 or 0, ensuring at least 10 digits)
     Pattern(
         name="UK_PHONE_NUMBER",
-        regex=r"\+?44[-. ]?\d{4}[-. ]?\d{6}|\(?0\d{4}\)?[-. ]?\d{6}",
+        regex=r"\+?44[-. ]?\d{3,4}[-. ]?\d{6,7}|\(?0\d{3,4}\)?[-. ]?\d{6,7}",
         score=0.85,
-    )
+    ),
 ]
+
 phone_number_recognizer = PatternRecognizer(patterns=phone_number_patterns,supported_entity="PHONE_NUMBER")
 
 
+
+# Url patterns
+url_patterns = [
+    Pattern(
+        name="STANDARD_URL",
+        regex=r"\b(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}(?:\/[^\s]*)?\/?\b",
+        score=0.90,
+    ),
+    Pattern(
+        name="URL_WITH_QUERY",
+        regex=r"\b(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}(?:\/[^\s]*)?\?(?:[^\s]*)?\b",
+        score=0.85,
+    ),
+    Pattern(
+        name="IP_URL",
+        regex=r"\b(?:https?:\/\/)?(?:\d{1,3}\.){3}\d{1,3}(?:\/[^\s]*)?\/?\b",
+        score=0.85,
+    ),
+    Pattern(
+        name="URL_WITH_PORT",
+        regex=r"\b(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}:\d{2,5}(?:\/[^\s]*)?\/?\b",
+        score=0.80,
+    ),
+    Pattern(
+        name="SHORT_URL",
+        regex=r"\b(?:https?:\/\/)?(?:www\.)?(?:bit\.ly|t\.co|goo\.gl|tinyurl\.com|ow\.ly|is\.gd|buff\.ly|shrtco\.de)\/[a-zA-Z0-9]+\b",
+        score=0.75,
+    ),
+    Pattern(
+        name="FILE_URL",
+        regex=r"\bfile:\/\/\/?[^\s]+\b",
+        score=0.70,
+    )
+]
+url_recognizer = PatternRecognizer(patterns=url_patterns,supported_entity="URL")
